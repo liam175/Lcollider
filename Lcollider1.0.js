@@ -2,7 +2,8 @@ let canv = document.querySelector("#canvas");
 let context = canv.getContext('2d');
 let width = canv.width;
 let height = canv.height;
-//----------------------------------------------
+let grounded = false;
+//start of colliders----------------------------------------------
 function rectCheck(x,y,x1,y1,w,h){
     if(x >= x1 && x <= x1 + w){
         if(y >= y1 && y <= y1 + h){
@@ -67,18 +68,19 @@ class item {
                                 this.force[1] = 0;
                             }
                         } else if (p == 1) {//right
-                            this.pos[0] -= .2;
+                            this.pos[0] -= .1;
                             if (this.force[0] > 0) {
                                 this.force[0] = 0;
                             }
                         } else if (p == 2) {//bottom
+                            grounded = true;
                             floor = true;
                             this.pos[1] -= .3;
                             if (this.force[1] > 0) {
                                 this.force[1] = 0;
                             }
                         } else if (p == 3) {//left
-                            this.pos[0] += .2;
+                            this.pos[0] += .1;
                             if (this.force[0] < 0) {
                                 this.force[0] = 0;
                             }
@@ -94,9 +96,9 @@ class item {
 }
 
 //constObj, rectCheck and items are needed
-let constObj = [new constant([0,300],400,100),new constant([350,0],50,400),new constant([100,200],50,10)]
-let items = [new item(.1, [200,100],[0,0],[[[5,0]],[[10,10]],[[5,20]],[[0,10]]],5,10,20)]
-//----------------------------------------------
+let constObj = [new constant([0,300],400,100),new constant([350,0],50,400),new constant([100,200],50,10),new constant([330,250],20,10),new constant([330,150],20,10),new constant([330,50],20,10)]
+let items = [new item(.1, [200,100],[0,0],[[[5,0]],[[10,5]],[[5,20]],[[0,5]]],5,10,20)]
+//end of colliders----------------------------------------------
 let keys = [false,false]
 document.addEventListener('keydown', function(event) {
     if(event.keyCode == 39) {
@@ -105,7 +107,8 @@ document.addEventListener('keydown', function(event) {
     if(event.keyCode == 37) {
         keys[0]=true;
     }
-    if(event.keyCode == 38) {
+    if(event.keyCode == 38&&grounded) {
+        grounded = false;
         items[0].addForce(0,-5)
     }
 });
