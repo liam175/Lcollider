@@ -1,0 +1,43 @@
+Lcollider 1.0
+
+-(gravity, position, force, points in the collider, terminal Velocity, width, height)
+-(float,[float,float],[float,float],[top points],[right points],[bottom points],[left points]],float,float,float)
+
+-tick(array)
+-will check all items in the list for collision. Must be in a constant format:
+
+class constant {
+   constructor(pos, width, height) {
+       this.pos = pos;
+       this.width = width;
+       this.height = height;
+   }
+}
+
+-addForce() 
+-will add force to the current force
+
+-setForce()
+-will set the force
+
+-getForce()
+-will return the force in an array
+
+-----------------------------------------------------------------------------------
+
+
+Lcollider 1.1
+
+-(position, points in the collider, width, height)
+-all values same as there 1.0 counterparts
+
+-setGrav(gravity, maxVelocity)
+-values same as there 1.0 counterparts
+
+-setCollActivation(top,right,bottom,left)
+-will activate a function on collision of these objects
+
+-tick([array(s)])
+-can check multiple arrays in same format as 1.0
+
+-setForce(),addForce(),getForce() is the same as 1.0
