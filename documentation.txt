@@ -1,4 +1,4 @@
-Lcollider 1.0
+Lphysics 1.0
 
 -(gravity, position, force, points in the collider, terminal Velocity, width, height)
 -(float,[float,float],[float,float],[top points],[right points],[bottom points],[left points]],float,float,float)
@@ -26,7 +26,7 @@ class constant {
 -----------------------------------------------------------------------------------
 
 
-Lcollider 1.1
+Lphysics 1.1
 
 -(position, points in the collider, width, height)
 -all values same as there 1.0 counterparts
@@ -41,3 +41,20 @@ Lcollider 1.1
 -can check multiple arrays in same format as 1.0
 
 -setForce(),addForce(),getForce() is the same as 1.0
+
+-----------------------------------------------------------------------------------
+
+
+Lphysics 1.2
+
+-setForce(),addForce(),getForce(),setGrav(),setCollActivation(),tick([array(s)]) is the same as 1.1
+
+-(position, points in the collider, width, height)
+
+-lockpos(x,y) will lock movement on those axis
+
+-player to player collisions are added. activate them by putting the list of players on tick
+
+-----------------------------------------------------------------------------------
+
+
