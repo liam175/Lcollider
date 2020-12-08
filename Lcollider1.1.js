@@ -60,6 +60,7 @@ class item {
     // to do the gravity and stuff
     //check is the list of thing you are checking so you can have diferent coliders
     tick(check) {
+        this.colliding=[false,false,false,false]
         let floor = false;
         this.pos[0] += this.force[0];
         this.pos[1] += this.force[1];
@@ -99,23 +100,15 @@ class item {
                             
                             if(rectCheck(this.point[p][p1][0] + this.pos[0], this.point[p][p1][1] - .5 + this.pos[1], check[i][c].pos[0], check[i][c].pos[1], check[i][c].width, check[i][c].height)&&p==0){
                                 this.colliding[0] = true
-                            }else if(p==0){
-                                this.colliding[0] = false
                             }
-                            if(rectCheck(this.point[p][p1][0] + this.pos[0] + .5, this.point[p][p1][1] + this.pos[1], check[i][c].pos[0], check[i][c].pos[1], check[i][c].width, check[i][c].height)&&p==1){
+                            if(rectCheck(this.point[p][p1][0] + this.pos[0] + 5, this.point[p][p1][1] + this.pos[1], check[i][c].pos[0], check[i][c].pos[1], check[i][c].width, check[i][c].height)&&p==1){
                                 this.colliding[1] = true
-                            }else if(p==1){
-                                this.colliding[1] = false
                             }
                             if(rectCheck(this.point[p][p1][0] + this.pos[0], this.point[p][p1][1] + this.pos[1] + .5, check[i][c].pos[0], check[i][c].pos[1], check[i][c].width, check[i][c].height)&&p==2){
                                 this.colliding[2] = true
-                            }else if(p==2){
-                                this.colliding[2] = false
                             }
                             if(rectCheck(this.point[p][p1][0] + this.pos[0] - .5, this.point[p][p1][1] + this.pos[1], check[i][c].pos[0], check[i][c].pos[1], check[i][c].width, check[i][c].height)&&p==3){
                                 this.colliding[3] = true
-                            }else if(p==3){
-                                this.colliding[3] = false
                             }
                         }
                     }
