@@ -51,7 +51,7 @@ Lphysics 1.2
 
 -(position, points in the collider, width, height)
 
--lockpos(x,y) will lock movement on those axis
+-lockpos(x,y) will lock movement on those axis. (if using this do not set initial position of a player in an object or it will crash)
 
 -player to player collisions are added. activate them by putting the list of players on tick
 
